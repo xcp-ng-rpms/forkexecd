@@ -1,0 +1,15 @@
+[Unit]
+Description=Manages subprocesses independently from a multithreaded program.
+After=syslog.target
+Wants=syslog.target
+
+[Service]
+Type=notify
+Environment=OCAMLRUNPARAM=b
+EnvironmentFile=-/etc/sysconfig/forkexecd
+ExecStart=/usr/sbin/forkexecd $FORKEXECD_OPTIONS
+KillMode=process
+StandardError=null
+
+[Install]
+WantedBy=multi-user.target
