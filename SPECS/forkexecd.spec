@@ -1,11 +1,11 @@
-Version:        1.8.0
-Release:        5%{?dist}
+Version:        1.10.0
+Release:        4%{?dist}
 Name:           forkexecd
 Summary:        A subprocess management service
 License:        LGPL
 URL:            https://github.com/xapi-project/forkexecd
 Source0:        https://code.citrite.net/rest/archive/latest/projects/XSU/repos/%{name}/archive?at=v%{version}&format=tar.gz&prefix=%{name}-%{version}#/%{name}-%{version}.tar.gz
-Provides: gitsha(https://code.citrite.net/rest/archive/latest/projects/XSU/repos/forkexecd/archive?at=v1.8.0&format=tar.gz&prefix=forkexecd-1.8.0#/forkexecd-1.8.0.tar.gz) = ad4cd0b134cfff8975f73bd44bd6a2d709b83914
+Provides: gitsha(https://code.citrite.net/rest/archive/latest/projects/XSU/repos/forkexecd/archive?at=v1.10.0&format=tar.gz&prefix=forkexecd-1.10.0#/forkexecd-1.10.0.tar.gz) = 8dae8d91a6b28dba951d74adad2653e82970f125
 Source1:        forkexecd.service
 Source2:        forkexecd-sysconfig
 BuildRequires:  xs-opam-repo
@@ -76,6 +76,12 @@ developing applications that use %{name}.
 %{ocaml_docdir}/forkexec
 
 %changelog
+* Tue May 29 2018 Christian Lindig <christian.lindig@citrix.com> - 1.10.0-1
+- fecomms: update and simplify interface using fd-send-recv >= 2.0.0
+
+* Thu May 24 2018 Christian Lindig <christian.lindig@citrix.com> - 1.9.0-1
+- lib/fecomms: make safe-string compliant
+
 * Fri Mar 09 2018 Christian Lindig <christian.lindig@citrix.com> - 1.8.0-1
 - CA-277850 Add fe_argv module for incrementally building argv
 
