@@ -32,11 +32,9 @@ fork() and exec() in a multithreaded program.
 %autosetup -p1
 
 %build
-eval $(opam config env --root=/usr/lib/opamroot)
 make
 
 %install
-eval $(opam config env --root=/usr/lib/opamroot)
 mkdir -p %{build_ocaml_libdir}
 mkdir -p %{build_ocaml_docdir}
 make install OPAM_PREFIX=%{build_ocaml_dir} OPAM_LIBDIR=%{build_ocaml_libdir} DESTDIR=%{buildroot} SBINDIR=%{_sbindir}
