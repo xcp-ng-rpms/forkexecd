@@ -1,13 +1,17 @@
-Version:        1.10.0
-Release:        4%{?dist}
+Version:        1.15.0
+Release:        1%{?dist}
 Name:           forkexecd
 Summary:        A subprocess management service
 License:        LGPL
 URL:            https://github.com/xapi-project/forkexecd
-Source0:        https://code.citrite.net/rest/archive/latest/projects/XSU/repos/%{name}/archive?at=v%{version}&format=tar.gz&prefix=%{name}-%{version}#/%{name}-%{version}.tar.gz
-Provides: gitsha(https://code.citrite.net/rest/archive/latest/projects/XSU/repos/forkexecd/archive?at=v1.10.0&format=tar.gz&prefix=forkexecd-1.10.0#/forkexecd-1.10.0.tar.gz) = 8dae8d91a6b28dba951d74adad2653e82970f125
-Source1:        forkexecd.service
-Source2:        forkexecd-sysconfig
+
+Source0: https://code.citrite.net/rest/archive/latest/projects/XSU/repos/forkexecd/archive?at=v1.15.0&format=tar.gz&prefix=forkexecd-1.15.0#/forkexecd-1.15.0.tar.gz
+Source1: SOURCES/forkexecd/forkexecd.service
+Source2: SOURCES/forkexecd/forkexecd-sysconfig
+
+
+Provides: gitsha(https://code.citrite.net/rest/archive/latest/projects/XSU/repos/forkexecd/archive?at=v1.15.0&format=tar.gz&prefix=forkexecd-1.15.0#/forkexecd-1.15.0.tar.gz) = bd7f21f2816e737700b536a2508b2bb18f76aac4
+
 BuildRequires:  xs-opam-repo
 BuildRequires:  ocaml-xcp-idl-devel
 BuildRequires:  systemd-devel
@@ -21,7 +25,7 @@ BuildRequires:  systemd-devel
 A service which starts and manages subprocesses, avoiding the need to manually
 fork() and exec() in a multithreaded program.
 
-%global ocaml_dir    /usr/lib/opamroot/system
+%global ocaml_dir    /usr/lib/opamroot/ocaml-system
 %global ocaml_libdir %{ocaml_dir}/lib
 %global ocaml_docdir %{ocaml_dir}/doc
 %global build_ocaml_dir %{buildroot}%{ocaml_dir}
@@ -61,6 +65,7 @@ touch %{build_ocaml_libdir}/xapi-forkexecd/opam.config
 %systemd_postun forkexecd.service
 
 %package        devel
+Provides: gitsha(https://code.citrite.net/rest/archive/latest/projects/XSU/repos/forkexecd/archive?at=v1.15.0&format=tar.gz&prefix=forkexecd-1.15.0#/forkexecd-1.15.0.tar.gz) = bd7f21f2816e737700b536a2508b2bb18f76aac4
 Summary:        Development files for %{name}
 Requires:       %{name} = %{version}-%{release}
 Requires:       xs-opam-repo
@@ -76,6 +81,22 @@ developing applications that use %{name}.
 %{ocaml_docdir}/forkexec
 
 %changelog
+* Wed Jan 23 2019 Christian Lindig <christian.lindig@citrix.com> - 1.15.0-1
+- Prepare for Dune 1.6
+- Remove from Makefile: OPAM_LIBDIR, OPAM_PREFIX
+
+* Tue Dec 04 2018 Christian Lindig <christian.lindig@citrix.com> - 1.14.0-1
+- Moved from jbuilder to dune. DEprecated xcp in favour of xapi-idl.
+
+* Wed Oct 31 2018 Christian Lindig <christian.lindig@citrix.com> - 1.13.0-1
+- Update opam files for Opam 2
+
+* Mon Sep 24 2018 Christian Lindig <christian.lindig@citrix.com> - 1.12.0-1
+- CP-29470: Use a path on tmpfs for temporary sockets and files
+
+* Tue Aug 21 2018 Christian Lindig <christian.lindig@citrix.com> - 1.11.0-1
+- Simplify lib/jbuild
+
 * Tue May 29 2018 Christian Lindig <christian.lindig@citrix.com> - 1.10.0-1
 - fecomms: update and simplify interface using fd-send-recv >= 2.0.0
 
