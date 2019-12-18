@@ -1,21 +1,23 @@
-Version:        1.15.0
-Release:        1%{?dist}
+Version:        1.17.0
+Release:        2%{?dist}
 Name:           forkexecd
 Summary:        A subprocess management service
 License:        LGPL
 URL:            https://github.com/xapi-project/forkexecd
 
-Source0: https://code.citrite.net/rest/archive/latest/projects/XSU/repos/forkexecd/archive?at=v1.15.0&format=tar.gz&prefix=forkexecd-1.15.0#/forkexecd-1.15.0.tar.gz
+Source0: https://code.citrite.net/rest/archive/latest/projects/XSU/repos/forkexecd/archive?at=v1.17.0&format=tar.gz&prefix=forkexecd-1.17.0#/forkexecd-1.17.0.tar.gz
 Source1: SOURCES/forkexecd/forkexecd.service
 Source2: SOURCES/forkexecd/forkexecd-sysconfig
 
 
-Provides: gitsha(https://code.citrite.net/rest/archive/latest/projects/XSU/repos/forkexecd/archive?at=v1.15.0&format=tar.gz&prefix=forkexecd-1.15.0#/forkexecd-1.15.0.tar.gz) = bd7f21f2816e737700b536a2508b2bb18f76aac4
+Provides: gitsha(https://code.citrite.net/rest/archive/latest/projects/XSU/repos/forkexecd/archive?at=v1.17.0&format=tar.gz&prefix=forkexecd-1.17.0#/forkexecd-1.17.0.tar.gz) = 1e3d19695909402e00e961eeff20227317ad4544
 
 BuildRequires:  xs-opam-repo
 BuildRequires:  ocaml-xcp-idl-devel
 BuildRequires:  systemd-devel
+#BuildRequires:  sudo
 
+Requires:       jemalloc
 %{?systemd_requires}
 
 %global _use_internal_dependency_generator 0
@@ -25,7 +27,7 @@ BuildRequires:  systemd-devel
 A service which starts and manages subprocesses, avoiding the need to manually
 fork() and exec() in a multithreaded program.
 
-%global ocaml_dir    /usr/lib/opamroot/ocaml-system
+%global ocaml_dir    %{_opamroot}/ocaml-system
 %global ocaml_libdir %{ocaml_dir}/lib
 %global ocaml_docdir %{ocaml_dir}/doc
 %global build_ocaml_dir %{buildroot}%{ocaml_dir}
@@ -37,6 +39,10 @@ fork() and exec() in a multithreaded program.
 
 %build
 make
+
+# requires sudo which doesn't quite work without a terminal
+#%check
+#make test
 
 %install
 mkdir -p %{build_ocaml_libdir}
@@ -65,7 +71,7 @@ touch %{build_ocaml_libdir}/xapi-forkexecd/opam.config
 %systemd_postun forkexecd.service
 
 %package        devel
-Provides: gitsha(https://code.citrite.net/rest/archive/latest/projects/XSU/repos/forkexecd/archive?at=v1.15.0&format=tar.gz&prefix=forkexecd-1.15.0#/forkexecd-1.15.0.tar.gz) = bd7f21f2816e737700b536a2508b2bb18f76aac4
+Provides: gitsha(https://code.citrite.net/rest/archive/latest/projects/XSU/repos/forkexecd/archive?at=v1.17.0&format=tar.gz&prefix=forkexecd-1.17.0#/forkexecd-1.17.0.tar.gz) = 1e3d19695909402e00e961eeff20227317ad4544
 Summary:        Development files for %{name}
 Requires:       %{name} = %{version}-%{release}
 Requires:       xs-opam-repo
@@ -81,6 +87,16 @@ developing applications that use %{name}.
 %{ocaml_docdir}/forkexec
 
 %changelog
+* Fri Aug 23 2019 Edwin Török <edvin.torok@citrix.com> - 1.17.0-2
+- bump packages after xs-opam update
+
+* Thu Aug 15 2019 Christian Lindig <christian.lindig@citrix.com> - 1.17.0-1
+- maintenance: use rpclib (#39)
+- opam: use ppx_deriving_rpc (#40)
+
+* Mon Apr 29 2019 Christian Lindig <christian.lindig@citrix.com> - 1.16.0-1
+- CP-30037: use transient systemd units for spawning long-running processes
+
 * Wed Jan 23 2019 Christian Lindig <christian.lindig@citrix.com> - 1.15.0-1
 - Prepare for Dune 1.6
 - Remove from Makefile: OPAM_LIBDIR, OPAM_PREFIX
