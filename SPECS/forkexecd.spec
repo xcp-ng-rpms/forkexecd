@@ -1,16 +1,16 @@
-Version:        1.17.0
-Release:        2%{?dist}
+Version:        1.18.0
+Release:        1%{?dist}
 Name:           forkexecd
 Summary:        A subprocess management service
 License:        LGPL
 URL:            https://github.com/xapi-project/forkexecd
 
-Source0: https://code.citrite.net/rest/archive/latest/projects/XSU/repos/forkexecd/archive?at=v1.17.0&format=tar.gz&prefix=forkexecd-1.17.0#/forkexecd-1.17.0.tar.gz
+Source0: https://code.citrite.net/rest/archive/latest/projects/XSU/repos/forkexecd/archive?at=v1.18.0&format=tar.gz&prefix=forkexecd-1.18.0#/forkexecd-1.18.0.tar.gz
 Source1: SOURCES/forkexecd/forkexecd.service
 Source2: SOURCES/forkexecd/forkexecd-sysconfig
 
 
-Provides: gitsha(https://code.citrite.net/rest/archive/latest/projects/XSU/repos/forkexecd/archive?at=v1.17.0&format=tar.gz&prefix=forkexecd-1.17.0#/forkexecd-1.17.0.tar.gz) = 1e3d19695909402e00e961eeff20227317ad4544
+Provides: gitsha(https://code.citrite.net/rest/archive/latest/projects/XSU/repos/forkexecd/archive?at=v1.18.0&format=tar.gz&prefix=forkexecd-1.18.0#/forkexecd-1.18.0.tar.gz) = d477a90e1b87b2402e6cff69008f51e8ec474fab
 
 BuildRequires:  xs-opam-repo
 BuildRequires:  ocaml-xcp-idl-devel
@@ -71,7 +71,7 @@ touch %{build_ocaml_libdir}/xapi-forkexecd/opam.config
 %systemd_postun forkexecd.service
 
 %package        devel
-Provides: gitsha(https://code.citrite.net/rest/archive/latest/projects/XSU/repos/forkexecd/archive?at=v1.17.0&format=tar.gz&prefix=forkexecd-1.17.0#/forkexecd-1.17.0.tar.gz) = 1e3d19695909402e00e961eeff20227317ad4544
+Provides: gitsha(https://code.citrite.net/rest/archive/latest/projects/XSU/repos/forkexecd/archive?at=v1.18.0&format=tar.gz&prefix=forkexecd-1.18.0#/forkexecd-1.18.0.tar.gz) = d477a90e1b87b2402e6cff69008f51e8ec474fab
 Summary:        Development files for %{name}
 Requires:       %{name} = %{version}-%{release}
 Requires:       xs-opam-repo
@@ -87,6 +87,11 @@ developing applications that use %{name}.
 %{ocaml_docdir}/forkexec
 
 %changelog
+* Fri Mar 06 2020 Christian Lindig <christian.lindig@citrix.com> - 1.18.0-1
+- CA-336056: fix non-root forkhelpers
+- Fix unit tests: lower max_fds
+- Update Travis to use common config
+
 * Fri Aug 23 2019 Edwin Török <edvin.torok@citrix.com> - 1.17.0-2
 - bump packages after xs-opam update
 
