@@ -87,7 +87,7 @@ developing applications that use %{name}.
 %{ocaml_docdir}/forkexec
 
 %changelog
-* Thu Nov 05 2020 Samuel Verschelde <stormi-xcp@ylix.fr> - 1.18.0-1.1.0.ipv6.1
+* Fri Jan 29 2021 Benjamin Reis <benjamin.reis@vates.fr> - 1.18.0-1.1.0.ipv6.1
 - Rebuild for IPv6: depends on ocaml-xcp-idl
 
 * Thu Nov 05 2020 Samuel Verschelde <stormi-xcp@ylix.fr> - 1.18.0-1.1
