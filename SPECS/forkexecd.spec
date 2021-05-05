@@ -1,5 +1,5 @@
 Version:        1.18.0
-Release:        1.1.0.ipv6.1%{?dist}
+Release:        1.1.0.ipv6.2%{?dist}
 Name:           forkexecd
 Summary:        A subprocess management service
 License:        LGPL
@@ -87,6 +87,9 @@ developing applications that use %{name}.
 %{ocaml_docdir}/forkexec
 
 %changelog
+* Wed May 05 2021 Benjamin Reis <benjamin.reis@vates.fr> - 1.18.0-1.1.0.ipv6.2
+- Rebuild for IPv6: depends on ocaml-xcp-idl
+
 * Fri Jan 29 2021 Benjamin Reis <benjamin.reis@vates.fr> - 1.18.0-1.1.0.ipv6.1
 - Rebuild for IPv6: depends on ocaml-xcp-idl
 
