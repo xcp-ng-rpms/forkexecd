@@ -1,5 +1,5 @@
 Version:        1.18.0
-Release:        1.1%{?dist}
+Release:        1.2%{?dist}
 Name:           forkexecd
 Summary:        A subprocess management service
 License:        LGPL
@@ -87,6 +87,9 @@ developing applications that use %{name}.
 %{ocaml_docdir}/forkexec
 
 %changelog
+* Tue May 18 2021 Samuel Verschelde <stormi-xcp@ylix.fr> - 1.18.0-1.2
+- Rebuild for updated xs-opam-repo and ocaml-xcp-idl from XS82E020
+
 * Thu Nov 05 2020 Samuel Verschelde <stormi-xcp@ylix.fr> - 1.18.0-1.1
 - Rebuild for xs-opam-src 6.35.1 from XS82E002
 
