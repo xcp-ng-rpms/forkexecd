@@ -1,5 +1,5 @@
 Version:        1.18.0
-Release:        1.3%{?dist}
+Release:        3.1%{?dist}
 Name:           forkexecd
 Summary:        A subprocess management service
 License:        LGPL
@@ -87,6 +87,14 @@ developing applications that use %{name}.
 %{ocaml_docdir}/forkexec
 
 %changelog
+* Mon Dec 20 2021 Samuel Verschelde <stormi-xcp@ylix.fr> - 1.18.0-3.1
+- Sync with CH 8.2.1
+- *** Upstream changelog ***
+- * Mon Sep 27 2021 Pau Ruiz Safont <pau.safont@citrix.com> - 1.18.0-3
+- - Bump package after xs-opam update
+- * Tue Jul 13 2021 Edwin Török <edvin.torok@citrix.com> - 1.18.0-2
+- - bump packages after xs-opam update
+
 * Thu Sep 02 2021 Samuel Verschelde <stormi-xcp@ylix.fr> - 1.18.0-1.3
 - Rebuild for updated message-switch from XS82E031
 
