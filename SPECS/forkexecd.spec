@@ -1,5 +1,5 @@
 Version:        1.18.0
-Release:        1%{?dist}
+Release:        3%{?dist}
 Name:           forkexecd
 Summary:        A subprocess management service
 License:        LGPL
@@ -87,6 +87,12 @@ developing applications that use %{name}.
 %{ocaml_docdir}/forkexec
 
 %changelog
+* Mon Sep 27 2021 Pau Ruiz Safont <pau.safont@citrix.com> - 1.18.0-3
+- Bump package after xs-opam update
+
+* Tue Jul 13 2021 Edwin Török <edvin.torok@citrix.com> - 1.18.0-2
+- bump packages after xs-opam update
+
 * Fri Mar 06 2020 Christian Lindig <christian.lindig@citrix.com> - 1.18.0-1
 - CA-336056: fix non-root forkhelpers
 - Fix unit tests: lower max_fds
