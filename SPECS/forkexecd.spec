@@ -1,5 +1,5 @@
 Version:        1.18.0
-Release:        3.1%{?dist}
+Release:        3.2%{?dist}
 Name:           forkexecd
 Summary:        A subprocess management service
 License:        LGPL
@@ -87,6 +87,9 @@ developing applications that use %{name}.
 %{ocaml_docdir}/forkexec
 
 %changelog
+* Wed Aug 17 2022 Gael Duperrey <gduperrey@vates.fr> - 1.18.0-3.2
+- Rebuild for updated xenopsd from XS82ECU1011
+
 * Mon Dec 20 2021 Samuel Verschelde <stormi-xcp@ylix.fr> - 1.18.0-3.1
 - Sync with CH 8.2.1
 - *** Upstream changelog ***
