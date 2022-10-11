@@ -1,16 +1,16 @@
-Version:        1.18.0
-Release:        3%{?dist}
+Version:        1.18.1
+Release:        1%{?dist}
 Name:           forkexecd
 Summary:        A subprocess management service
 License:        LGPL
 URL:            https://github.com/xapi-project/forkexecd
 
-Source0: https://code.citrite.net/rest/archive/latest/projects/XSU/repos/forkexecd/archive?at=v1.18.0&format=tar.gz&prefix=forkexecd-1.18.0#/forkexecd-1.18.0.tar.gz
+Source0: https://code.citrite.net/rest/archive/latest/projects/XSU/repos/forkexecd/archive?at=v1.18.1&format=tar.gz&prefix=forkexecd-1.18.1#/forkexecd-1.18.1.tar.gz
 Source1: SOURCES/forkexecd/forkexecd.service
 Source2: SOURCES/forkexecd/forkexecd-sysconfig
 
 
-Provides: gitsha(https://code.citrite.net/rest/archive/latest/projects/XSU/repos/forkexecd/archive?at=v1.18.0&format=tar.gz&prefix=forkexecd-1.18.0#/forkexecd-1.18.0.tar.gz) = d477a90e1b87b2402e6cff69008f51e8ec474fab
+Provides: gitsha(https://code.citrite.net/rest/archive/latest/projects/XSU/repos/forkexecd/archive?at=v1.18.1&format=tar.gz&prefix=forkexecd-1.18.1#/forkexecd-1.18.1.tar.gz) = 77761ac08a8983e22236f8d5d536c303b6fc8597
 
 BuildRequires:  xs-opam-repo
 BuildRequires:  ocaml-xcp-idl-devel
@@ -71,7 +71,7 @@ touch %{build_ocaml_libdir}/xapi-forkexecd/opam.config
 %systemd_postun forkexecd.service
 
 %package        devel
-Provides: gitsha(https://code.citrite.net/rest/archive/latest/projects/XSU/repos/forkexecd/archive?at=v1.18.0&format=tar.gz&prefix=forkexecd-1.18.0#/forkexecd-1.18.0.tar.gz) = d477a90e1b87b2402e6cff69008f51e8ec474fab
+Provides: gitsha(https://code.citrite.net/rest/archive/latest/projects/XSU/repos/forkexecd/archive?at=v1.18.1&format=tar.gz&prefix=forkexecd-1.18.1#/forkexecd-1.18.1.tar.gz) = 77761ac08a8983e22236f8d5d536c303b6fc8597
 Summary:        Development files for %{name}
 Requires:       %{name} = %{version}-%{release}
 Requires:       xs-opam-repo
@@ -87,6 +87,9 @@ developing applications that use %{name}.
 %{ocaml_docdir}/forkexec
 
 %changelog
+* Tue Aug 16 2022 Rob Hoes <rob.hoes@citrix.com> - 1.18.1-1
+- CP-34942: Make test compatible with dune 2.7+
+
 * Mon Sep 27 2021 Pau Ruiz Safont <pau.safont@citrix.com> - 1.18.0-3
 - Bump package after xs-opam update
 
