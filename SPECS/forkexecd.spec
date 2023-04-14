@@ -1,17 +1,14 @@
-Version:        1.18.1
-Release:        1.1%{?dist}
+%global package_speccommit cbd05b8df11622176d97ff78aace63d7523bd01b
+%global package_srccommit v1.18.1
+Version: 1.18.1
+Release: 2.1%{?xsrel}%{?dist}
 Name:           forkexecd
 Summary:        A subprocess management service
-License:        LGPL
+License:        LGPL-2.1-or-later WITH OCaml-LGPL-linking-exception
 URL:            https://github.com/xapi-project/forkexecd
-
-Source0: https://code.citrite.net/rest/archive/latest/projects/XSU/repos/forkexecd/archive?at=v1.18.1&format=tar.gz&prefix=forkexecd-1.18.1#/forkexecd-1.18.1.tar.gz
-Source1: SOURCES/forkexecd/forkexecd.service
-Source2: SOURCES/forkexecd/forkexecd-sysconfig
-
-
-Provides: gitsha(https://code.citrite.net/rest/archive/latest/projects/XSU/repos/forkexecd/archive?at=v1.18.1&format=tar.gz&prefix=forkexecd-1.18.1#/forkexecd-1.18.1.tar.gz) = 77761ac08a8983e22236f8d5d536c303b6fc8597
-
+Source0: forkexecd-1.18.1.tar.gz
+Source1: forkexecd.service
+Source2: forkexecd-sysconfig
 BuildRequires:  xs-opam-repo
 BuildRequires:  ocaml-xcp-idl-devel
 BuildRequires:  systemd-devel
@@ -19,9 +16,6 @@ BuildRequires:  systemd-devel
 
 Requires:       jemalloc
 %{?systemd_requires}
-
-%global _use_internal_dependency_generator 0
-%global __requires_exclude *caml*
 
 %description
 A service which starts and manages subprocesses, avoiding the need to manually
@@ -71,7 +65,6 @@ touch %{build_ocaml_libdir}/xapi-forkexecd/opam.config
 %systemd_postun forkexecd.service
 
 %package        devel
-Provides: gitsha(https://code.citrite.net/rest/archive/latest/projects/XSU/repos/forkexecd/archive?at=v1.18.1&format=tar.gz&prefix=forkexecd-1.18.1#/forkexecd-1.18.1.tar.gz) = 77761ac08a8983e22236f8d5d536c303b6fc8597
 Summary:        Development files for %{name}
 Requires:       %{name} = %{version}-%{release}
 Requires:       xs-opam-repo
@@ -87,6 +80,13 @@ developing applications that use %{name}.
 %{ocaml_docdir}/forkexec
 
 %changelog
+* Fri Apr 14 2023 Samuel Verschelde <stormi-xcp@ylix.fr> - 1.18.1-2.1
+- Sync with hotfix XS82ECU1027
+- *** Upstream changelog ***
+- * Thu Feb 23 2023 Pau Ruiz Safont <pau.ruizsafont@cloud.com> - 1.18.1-2
+- - Change license to match source
+- - Remove macro for dependency generator
+
 * Wed Oct 12 2022 Samuel Verschelde <stormi-xcp@ylix.fr> - 1.18.1-1.1
 - Update as part of XAPI security update synced from XS82ECU1019
 - *** Upstream changelog ***
