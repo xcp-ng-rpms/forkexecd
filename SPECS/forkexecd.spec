@@ -1,12 +1,12 @@
-%global package_speccommit cbd05b8df11622176d97ff78aace63d7523bd01b
-%global package_srccommit v1.18.1
-Version: 1.18.1
+%global package_speccommit 3a70be6b5605eae565960c1ea1a6ef9f0474fbd1
+%global package_srccommit v1.18.3
+Version: 1.18.3
 Release: 2%{?xsrel}%{?dist}
 Name:           forkexecd
 Summary:        A subprocess management service
 License:        LGPL-2.1-or-later WITH OCaml-LGPL-linking-exception
 URL:            https://github.com/xapi-project/forkexecd
-Source0: forkexecd-1.18.1.tar.gz
+Source0: forkexecd-1.18.3.tar.gz
 Source1: forkexecd.service
 Source2: forkexecd-sysconfig
 BuildRequires:  xs-opam-repo
@@ -80,6 +80,21 @@ developing applications that use %{name}.
 %{ocaml_docdir}/forkexec
 
 %changelog
+* Thu Jul 20 2023 Rob Hoes <rob.hoes@citrix.com> - 1.18.3-2
+- Bump release and rebuild
+
+* Mon Jun 19 2023 Christian Lindig <christian.lindig@citrix.com> - 1.18.3-1
+- Revert "CA-341921: avoid EINVAL errors for >1024 FDs"
+
+* Thu Jun 08 2023 Christian Lindig <christian.lindig@citrix.com> - 1.18.2-1
+- CA-341921: avoid EINVAL errors for >1024 FDs
+
+* Fri May 12 2023 Christian Lindig <christian.lindig@citrix.com> - 1.18.1-4
+- Bump release and rebuild
+
+* Fri May 12 2023 Christian Lindig <christian.lindig@citrix.com> - 1.18.1-3
+- Bump release and rebuild
+
 * Thu Feb 23 2023 Pau Ruiz Safont <pau.ruizsafont@cloud.com> - 1.18.1-2
 - Change license to match source
 - Remove macro for dependency generator
