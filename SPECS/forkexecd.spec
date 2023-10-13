@@ -1,7 +1,7 @@
-%global package_speccommit 3a70be6b5605eae565960c1ea1a6ef9f0474fbd1
+%global package_speccommit 8ce13ac0825ac5b67d71ab8fec200e4004781171
 %global package_srccommit v1.18.3
 Version: 1.18.3
-Release: 2%{?xsrel}%{?dist}
+Release: 3%{?xsrel}%{?dist}
 Name:           forkexecd
 Summary:        A subprocess management service
 License:        LGPL-2.1-or-later WITH OCaml-LGPL-linking-exception
@@ -80,6 +80,9 @@ developing applications that use %{name}.
 %{ocaml_docdir}/forkexec
 
 %changelog
+* Mon Oct 02 2023 Pau Ruiz Safont <pau.ruizsafont@cloud.com> - 1.18.3-3
+- Bump release and rebuild
+
 * Thu Jul 20 2023 Rob Hoes <rob.hoes@citrix.com> - 1.18.3-2
 - Bump release and rebuild
 
