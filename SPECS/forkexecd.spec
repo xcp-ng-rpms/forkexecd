@@ -1,7 +1,7 @@
-%global package_speccommit 8ce13ac0825ac5b67d71ab8fec200e4004781171
+%global package_speccommit 429c67c52e29b9bee2152d6f41d21fd8d106228b
 %global package_srccommit v1.18.3
 Version: 1.18.3
-Release: 3%{?xsrel}%{?dist}
+Release: 10%{?xsrel}%{?dist}
 Name:           forkexecd
 Summary:        A subprocess management service
 License:        LGPL-2.1-or-later WITH OCaml-LGPL-linking-exception
@@ -80,6 +80,27 @@ developing applications that use %{name}.
 %{ocaml_docdir}/forkexec
 
 %changelog
+* Fri Mar 08 2024 Christian Lindig <christian.lindig@cloud.com> - 1.18.3-10
+- Bump release and rebuild
+
+* Wed Mar 06 2024 Christian Lindig <christian.lindig@cloud.com> - 1.18.3-9
+- Bump release and rebuild
+
+* Tue Mar 05 2024 Christian Lindig <christian.lindig@cloud.com> - 1.18.3-8
+- Bump release and rebuild
+
+* Fri Nov 03 2023 Christian Lindig <christian.lindig@cloud.com> - 1.18.3-7
+- Bump release and rebuild
+
+* Tue Oct 24 2023 Christian Lindig <christian.lindig@cloud.com> - 1.18.3-6
+- Bump release and rebuild
+
+* Tue Oct 24 2023 Christian Lindig <christian.lindig@cloud.com> - 1.18.3-5
+- Bump release and rebuild
+
+* Wed Oct 18 2023 Christian Lindig <christian.lindig@cloud.com> - 1.18.3-4
+- Bump release and rebuild
+
 * Mon Oct 02 2023 Pau Ruiz Safont <pau.ruizsafont@cloud.com> - 1.18.3-3
 - Bump release and rebuild
 
