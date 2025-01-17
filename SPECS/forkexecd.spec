@@ -1,7 +1,7 @@
-%global package_speccommit 396d0c4f616ab51589ff6bb4b460d9cbeb574320
+%global package_speccommit baa7cc7859860d71e857c621166fa0cc984a94af
 %global package_srccommit v1.18.3
 Version: 1.18.3
-Release: 12.1%{?xsrel}%{?dist}
+Release: 15.1%{?xsrel}%{?dist}
 Name:           forkexecd
 Summary:        A subprocess management service
 License:        LGPL-2.1-or-later WITH OCaml-LGPL-linking-exception
@@ -80,9 +80,21 @@ developing applications that use %{name}.
 %{ocaml_docdir}/forkexec
 
 %changelog
+* Thu Jan 16 2025 Gael Duperrey <gduperrey@vates.tech> - 1.18.3-15.1
+- Rebuild after sync with hotfix XS82ECU1080
+- No source changes: only rebuild for dependencies
+- *** Upstream changelog ***
+- * Fri Dec 13 2024 Christian Lindig <christian.lindig@cloud.com> - 1.18.3-15
+- - Bump release and rebuild
+- * Thu Dec 12 2024 Christian Lindig <christian.lindig@cloud.com> - 1.18.3-14
+- - Bump release and rebuild
+- * Mon Dec 09 2024 Christian Lindig <christian.lindig@cloud.com> - 1.18.3-13
+- - Bump release and rebuild
+
 * Thu Oct 24 2024 Gael Duperrey <gduperrey@vates.tech> - 1.18.3-12.1
 - Rebuild after sync with hotfix XS82ECU1074
 - No source changes: only rebuild for dependencies
+- *** Upstream changelog ***
 - * Thu Aug 29 2024 Christian Lindig <christian.lindig@cloud.com> - 1.18.3-12
 - - Bump release and rebuild
 - * Wed Jun 19 2024 Christian Lindig <christian.lindig@cloud.com> - 1.18.3-11
